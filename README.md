@@ -1,24 +1,24 @@
 # Penjelasan Requirement Program
 
-Dokumen ini berisi jawaban beserta potongan kode (snippets) dari aplikasi **Villa Booking** ini untuk memenuhi spesifikasi tugas pemrograman. 
-*(Catatan: Silakan ganti placeholder `[Screenshot ...]` dengan gambar *screenshot* aplikasi yang sesuai).*
+Dokumen ini berisi jawaban beserta potongan kode (snippets) dari aplikasi **Villa Booking** ini untuk memenuhi spesifikasi tugas pemrograman.
 
 ---
 
 ### a. Program yang dibuat harus sesuai dengan rancangan (Data Flow Diagram/Use Case) yang dibuat
-**Jawaban:** Ya. Program ini dirancang sesuai Use Case di mana:
-- **Guest (Tamu):** Dapat melihat daftar villa, mengecek ketersediaan tanggal, dan membuat *booking*.
-- **Admin:** Memiliki fitur *dashboard* lengkap untuk mengelola (*CRUD*) Villa, *Booking*, *Blocked Date* kalender (seperti terlihat pada `/admin/calendar`), dan menyetujui/menolak *booking*.
 
-`[Insert Screenshot: DFD / Use Case Diagram Anda]`
-`[Insert Screenshot: Halaman /admin/calendar]`
+**Jawaban:** Ya. Program ini dirancang sesuai Use Case di mana:
+
+- **Guest (Tamu):** Dapat melihat daftar villa, mengecek ketersediaan tanggal, dan membuat _booking_.
+- **Admin:** Memiliki fitur _dashboard_ lengkap untuk mengelola (_CRUD_) Villa, _Booking_, _Blocked Date_ kalender (seperti terlihat pada `/admin/calendar`), dan menyetujui/menolak _booking_.
 
 ---
 
 ### b. Menerapkan coding guidelines sesuai dengan bahasa pemrograman yang digunakan
-**Jawaban:** Ya. Aplikasi ini dikembangkan menggunakan *framework* Laravel (PHP) dengan standar *coding guidelines* **PSR-12**. Di antaranya menggunakan *CamelCase* untuk nama *method*, *StudlyCaps* untuk nama *class*, *type-hinting* yang jelas (seperti `: array` dan `: string`), dan struktur *namespace* bawaan Laravel.
+
+**Jawaban:** Ya. Aplikasi ini dikembangkan menggunakan _framework_ Laravel (PHP) dengan standar _coding guidelines_ **PSR-12**. Di antaranya menggunakan _CamelCase_ untuk nama _method_, _StudlyCaps_ untuk nama _class_, _type-hinting_ yang jelas (seperti `: array` dan `: string`), dan struktur _namespace_ bawaan Laravel.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Mendapatkan total harga yang diformat ke Rupiah.
@@ -35,18 +35,32 @@ public function getFormattedTotalPriceAttribute(): string
 ---
 
 ### c. Program yang dibuat mempunyai interface input dan output(tampilan) ke pengguna
-**Jawaban:** Ya. Aplikasi memiliki antar muka pengguna (*User Interface*) baik untuk sisi *Guest* maupun *Admin*. Data diambil dari *backend* dan ditampilkan dalam format HTML yang di-*styling* dengan Tailwind CSS via Blade/Livewire.
+
+**Jawaban:** Ya. Aplikasi memiliki antar muka pengguna (_User Interface_) baik untuk sisi _Guest_ maupun _Admin_. Data diambil dari _backend_ dan ditampilkan dalam format HTML yang di-_styling_ dengan Tailwind CSS via Blade/Livewire.
 
 **Contoh Kode (resources/views/guest/booking-status.blade.php):**
+
 ```html
 <!-- Input form pencarian booking -->
 <form wire:submit="checkStatus" class="space-y-4">
     <div>
-        <label for="booking_code" class="block text-sm font-medium text-gray-700">Kode Booking</label>
-        <input type="text" id="booking_code" wire:model="booking_code" required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+        <label
+            for="booking_code"
+            class="block text-sm font-medium text-gray-700"
+            >Kode Booking</label
+        >
+        <input
+            type="text"
+            id="booking_code"
+            wire:model="booking_code"
+            required
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+        />
     </div>
-    <button type="submit" class="w-full bg-[#1e3a8a] text-white py-2 rounded-md hover:bg-blue-700">
+    <button
+        type="submit"
+        class="w-full bg-[#1e3a8a] text-white py-2 rounded-md hover:bg-blue-700"
+    >
         Cek Status
     </button>
 </form>
@@ -60,14 +74,15 @@ public function getFormattedTotalPriceAttribute(): string
 </div>
 @endif
 ```
-`[Insert Screenshot: Halaman Cek Status Booking di Browser]`
 
 ---
 
-### d. Program yang dibuat harus menerapkan tipe data yang sesuai, mengikuti syntax Bahasa pemrograman yang digunakan, dan mempunyai struktur control percabangan (if..then..else) dan pengulangan (do while....for...dll) 
-**Jawaban:** Ya. Program telah menggunakan *casting* tipe data di Model, serta struktur *control* modern PHP (PHP 8 `match` expression yang setara percabangan multi kondisi `if-elseif` / `switch`) untuk melogika *status badge*. Pengulangan (`@foreach`) digunakan secara luas di file *view* Blade saat merender tabel maupun list.
+### d. Program yang dibuat harus menerapkan tipe data yang sesuai, mengikuti syntax Bahasa pemrograman yang digunakan, dan mempunyai struktur control percabangan (if..then..else) dan pengulangan (do while....for...dll)
+
+**Jawaban:** Ya. Program telah menggunakan _casting_ tipe data di Model, serta struktur _control_ modern PHP (PHP 8 `match` expression yang setara percabangan multi kondisi `if-elseif` / `switch`) untuk melogika _status badge_. Pengulangan (`@foreach`) digunakan secara luas di file _view_ Blade saat merender tabel maupun list.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Casting tipe data kolom database ke tipe data native PHP.
@@ -99,9 +114,11 @@ public function getStatusBadgeAttribute(): string
 ---
 
 ### e. Program yang dibuat harus menerapkan penggunaan prosedur, fungsi, atau method
-**Jawaban:** Ya. Sebagian besar logika dipisahkan dalam *method* objek (fungsi yang berada di dalam Class). Ini guna menerapkan prinsip DRY (*Don't Repeat Yourself*).
+
+**Jawaban:** Ya. Sebagian besar logika dipisahkan dalam _method_ objek (fungsi yang berada di dalam Class). Ini guna menerapkan prinsip DRY (_Don't Repeat Yourself_).
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Method/fungsi untuk menghitung jumlah malam menginap secara otomatis
@@ -118,9 +135,11 @@ public function getNightsAttribute(): int
 ---
 
 ### f. Program yang dibuat harus menggunakan Array
-**Jawaban:** Ya. Program ini sangat bergantung pada struktur data Array (tipe dictionary/asosiatif di PHP). Salah satunya digunakan untuk menampung pemetaan *label status* bahasa Inggris ke Bahasa Indonesia atau properti `fillable`.
+
+**Jawaban:** Ya. Program ini sangat bergantung pada struktur data Array (tipe dictionary/asosiatif di PHP). Salah satunya digunakan untuk menampung pemetaan _label status_ bahasa Inggris ke Bahasa Indonesia atau properti `fillable`.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Mendapatkan label status dalam Bahasa Indonesia.
@@ -145,9 +164,11 @@ public function getStatusLabelAttribute(): string
 ---
 
 ### g. Program yang dibuat harus mempunyai fasilitas untuk menyimpan dan membaca data di media penyimpan
-**Jawaban:** Ya. Fasilitas penyimpanan (CRUD - *Create, Read, Update, Delete*) ditangani oleh ORM Eloquent di dalam Framework yang terkoneksi langsung dengan media penyimpan (*Database Server MySQL/SQLite/Postgres*). File relasi antar tabel dipanggil (dibaca/Read) secara dinamis menggunakan sintaks objek, serta data di *views* diakses dari *Database*.
+
+**Jawaban:** Ya. Fasilitas penyimpanan (CRUD - _Create, Read, Update, Delete_) ditangani oleh ORM Eloquent di dalam Framework yang terkoneksi langsung dengan media penyimpan (_Database Server MySQL/SQLite/Postgres_). File relasi antar tabel dipanggil (dibaca/Read) secara dinamis menggunakan sintaks objek, serta data di _views_ diakses dari _Database_.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Relasi: Membaca (Read) data Villa yang terkait dengan data Booking ini ke Media Penyimpan/Database
@@ -156,21 +177,23 @@ public function getStatusLabelAttribute(): string
  */
 public function villa(): BelongsTo
 {
-    return $this->belongsTo(Villa::class); 
+    return $this->belongsTo(Villa::class);
     // ^ Berkomunikasi dengan database untuk menarik detail Villa terkait
 }
 ```
-`[Insert Screenshot: Data Booking / Kalender Admin yang diload dari Database]`
 
 ---
 
 ### h. Program harus menerapkan hak akses tipe data dengan benar, mempunyai properties, menerapkan inheritance, polymorpy, overloading, dan interface.
-**Jawaban:** Ya. Aplikasi ini 100% berbasis OOP model. 
-1. **Inheritance & Properties / Access Modifiers:** Model `Booking` menurunkan (*extends*) *core class* `Model` asli milik Laravel, dengan menimpa *property protected* `$fillable`.
-2. **Polymorphism/Trait:** Penggunaan `use HasFactory;` untuk berbagi sifat *factory pattern* antarkelas (sejenis trait *polymorphism*).
-3. **Interfaces:** *Library* Laravel di-"*behind the scenes*" menggunakan berbagai *interface* seperti `Arrayable` dan *contract* untuk mem-parsing respons. 
+
+**Jawaban:** Ya. Aplikasi ini 100% berbasis OOP model.
+
+1. **Inheritance & Properties / Access Modifiers:** Model `Booking` menurunkan (_extends_) _core class_ `Model` asli milik Laravel, dengan menimpa _property protected_ `$fillable`.
+2. **Polymorphism/Trait:** Penggunaan `use HasFactory;` untuk berbagi sifat _factory pattern_ antarkelas (sejenis trait _polymorphism_).
+3. **Interfaces:** _Library_ Laravel di-"_behind the scenes_" menggunakan berbagai _interface_ seperti `Arrayable` dan _contract_ untuk mem-parsing respons.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 class Booking extends Model // <- Inheritance
 {
@@ -192,9 +215,11 @@ class Booking extends Model // <- Inheritance
 ---
 
 ### i. Program yang dibuat harus terdiri dari 2 atau lebih namespace atau package
-**Jawaban:** Ya. Terdapat pengelompokan menggunakan `namespace` agar file tidak bentrok sekaligus menerapkan *package structure* (mirip Java). Misalnya *Models* ada di dalam `namespace App\Models;`, sedangkan *Controller* atau komponen Livewire (*di dalam `/app/Livewire`*) tentu ada di dalam `namespace App\Livewire;`.
+
+**Jawaban:** Ya. Terdapat pengelompokan menggunakan `namespace` agar file tidak bentrok sekaligus menerapkan _package structure_ (mirip Java). Misalnya _Models_ ada di dalam `namespace App\Models;`, sedangkan _Controller_ atau komponen Livewire (_di dalam `/app/Livewire`_) tentu ada di dalam `namespace App\Livewire;`.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 <?php
 
@@ -209,9 +234,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 ---
 
 ### j. Program yang dibuat harus menggunakan atau menanfaatkan eksternal library yang sudah ada dan tersedia
-**Jawaban:** Ya. Program sangat bergantung pada *Dependency Manager* Composer di backend dan NPM di frontend. *Library* dari pihak ke-3 didefinisikan secara tegas untuk menunjang framework berjalan lancar. 
+
+**Jawaban:** Ya. Program sangat bergantung pada _Dependency Manager_ Composer di backend dan NPM di frontend. _Library_ dari pihak ke-3 didefinisikan secara tegas untuk menunjang framework berjalan lancar.
 
 **Contoh Kode (composer.json):**
+
 ```json
 "require": {
     "php": "^8.2",
@@ -224,16 +251,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 ---
 
 ### k. Program harus menggunakan basis data
-**Jawaban:** Ya. Program ini sangat mengandalkan sistem basis data relasional. Model terhubung ke tabel *database* dengan kolom-kolom persisten (seperti `guest_name`, `booking_code`, `status`, dsb). Pembuatan tabel menggunakan fitur Migrations yang dieksekusi via terminal (`php artisan migrate`).
 
-`[Insert Screenshot: Struktur Tabel / Tampilan Isi Database/PhpMyAdmin]`
+**Jawaban:** Ya. Program ini sangat mengandalkan sistem basis data relasional. Model terhubung ke tabel _database_ dengan kolom-kolom persisten (seperti `guest_name`, `booking_code`, `status`, dsb). Pembuatan tabel menggunakan fitur Migrations yang dieksekusi via terminal (`php artisan migrate`).
 
 ---
 
 ### l. Program harus didokumentasikan dengan baik dengan standard atau guidelines dokumentasi sesuai dengan bahasa pemrograman yang digunakan
-**Jawaban:** Ya. Program mematuhi sistem *DocBlocks* standar (seperti *PHPDoc*), di mana bagian atas nama kelas maupun sebelum pendefinisian suatu method/fungsi akan diberi penjalasan (komentar multiline `/** ... */`), penanda param `@property`, maupun penanda penipuan pengembalian `@return`. 
+
+**Jawaban:** Ya. Program mematuhi sistem _DocBlocks_ standar (seperti _PHPDoc_), di mana bagian atas nama kelas maupun sebelum pendefinisian suatu method/fungsi akan diberi penjalasan (komentar multiline `/** ... */`), penanda param `@property`, maupun penanda penipuan pengembalian `@return`.
 
 **Contoh Kode (app/Models/Booking.php):**
+
 ```php
 /**
  * Model Booking — representasi reservasi tamu untuk sebuah villa.
