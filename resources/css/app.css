@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-display: "Plus Jakarta Sans", sans-serif;
+    --font-sans: "Plus Jakarta Sans", sans-serif;
+
+    /* Kawi Resort Primary Color #7a1f34 */
+    --color-primary-50: #fdf3f5;
+    --color-primary-100: #fbe5ea;
+    --color-primary-200: #f6cdd6;
+    --color-primary-300: #efa3b5;
+    --color-primary-400: #e36a88;
+    --color-primary-500: #d33c61;
+    --color-primary-600: #bc2347;
+    --color-primary-700: #9e1a38;
+    --color-primary-800: #841832;
+    --color-primary: #7a1f34;
+    --color-primary-900: #71192e;
+
+    /* Backgrounds */
+    --color-background-light: #f8f6f6;
+    --color-background-dark: #1f1316;
+}

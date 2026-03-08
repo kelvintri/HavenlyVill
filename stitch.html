@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lacak Reservasi - Kawi Resort</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7a1f34",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1f1316",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navigation Header -->
+<header class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">temple_hindu</span>
+</div>
+<h1 class="text-primary text-xl font-bold tracking-tight">KAWI RESORT</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Villas</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dining</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Spa</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Gallery</a>
+</nav>
+<div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold tracking-wide hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        Book Now
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section with Background -->
+<main class="flex-grow flex flex-col items-center justify-center relative overflow-hidden py-20 px-4">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-light/40 via-background-light/80 to-background-light dark:from-background-dark/40 dark:via-background-dark/80 dark:to-background-dark z-10"></div>
+<img alt="Luxury Bali Resort Infinity Pool" class="w-full h-full object-cover grayscale-[20%] opacity-40" data-alt="Luxury Bali Resort Infinity Pool at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ4-9IzZSipFModGK0S5JUdlc_JZRfjfw4VmSAljyMdtHB7MJ2TRfK7vTzoZud2wA3O_ulYsjek8g4tcPLzYuzjXRR-8SKOY-NnNNkakb3-DB4kiheVOOiSjBzS9xiL02GfPEVz_czkKHgm9fofkkhUvRIfB_tJzdC17ZAIjwk2ZRRESSWw96CD8ywKOYDDjJn2J_I69ZpRyl4wi7-Qr1-CossuyWnCLEsIKLAO-FaBZR_8q0WzU1WB_txHMPcLrmpNc7onmqVk2U"/>
+</div>
+<!-- Content Container -->
+<div class="relative z-20 max-w-2xl w-full text-center space-y-8">
+<div class="space-y-4">
+<span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">Guest Services</span>
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Lacak Reservasi</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-lg mx-auto">
+                    Masukkan kode booking yang Anda terima untuk melihat detail dan status reservasi Anda di Kawi Resort.
+                </p>
+</div>
+<!-- Search Form -->
+<div class="bg-white dark:bg-slate-900/50 p-2 md:p-3 rounded-2xl shadow-2xl border border-primary/5 backdrop-blur-sm">
+<div class="flex flex-col md:flex-row gap-3">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">confirmation_number</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border-none bg-slate-100 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 text-slate-900 dark:text-white placeholder:text-slate-400 text-lg transition-all" placeholder="Masukkan kode booking Anda" type="text"/>
+</div>
+<button class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-primary/30 active:scale-95 transition-all">
+                        Cari
+                    </button>
+</div>
+</div>
+<!-- Help Links -->
+<div class="flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+<a class="flex items-center gap-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+                    Bantuan Kode Booking
+                </a>
+<a class="flex items-center gap-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+                    Hubungi Customer Service
+                </a>
+</div><div class="mt-12 w-full animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="bg-white dark:bg-slate-900/60 rounded-2xl shadow-2xl border border-primary/10 overflow-hidden backdrop-blur-md">
+<div class="p-6 border-b border-primary/5 bg-primary/5 flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Detail Reservasi</h3>
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">Terkonfirmasi</span>
+</div>
+<div class="p-8 space-y-8 text-left">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Nama Tamu</p>
+<p class="text-lg font-semibold text-slate-800 dark:text-slate-200">Eleanor Sterling</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Tipe Villa</p>
+<p class="text-lg font-semibold text-slate-800 dark:text-slate-200">One Bedroom Private Pool Villa</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Tanggal Menginap</p>
+<p class="text-lg font-semibold text-slate-800 dark:text-slate-200">12 - 15 Des 2023</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Total Harga</p>
+<p class="text-2xl font-black text-primary">$1,350</p>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-4">
+<button class="flex-1 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">download</span>
+                    Download Invoice
+                </button>
+<button class="flex-1 border-2 border-primary/20 text-primary px-6 py-3 rounded-xl font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">support_agent</span>
+                    Hubungi Resepsionis
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-950 border-t border-primary/5 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">temple_hindu</span>
+<span class="font-bold text-lg tracking-tight">KAWI RESORT</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        A boutique luxury retreat in the heart of Bali, offering unparalleled tranquility and Balinese hospitality.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Quick Links</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rooms &amp; Suites</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Special Offers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Experiences</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Support</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Track Booking</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Contact</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span>Ubud, Gianyar, Bali, Indonesia</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">phone</span>
+<span>+62 361 1234 567</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<span>reservations@kawiresort.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 Kawi Resort Bali. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Facebook</a>
+<a class="hover:text-primary transition-colors" href="#">TripAdvisor</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
