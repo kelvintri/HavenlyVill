@@ -43,7 +43,7 @@ Sistem ini dibangun dengan tumpukan teknologi (Tech Stack) modern berbasis PHP d
 - **Framework Utama:** Laravel 12.0
 - **User Interface (UI) Builder:** Tailwind CSS (Vanilla Utility CSS)
 - **Komponen Reaktif:** Livewire 4 (Pengganti interaktivitas AJAX/Vue)
-- **Basis Data:** Relational Database (MySQL / SQLite / PostgreSQL)
+- **Basis Data:** Relational Database (MySQL)
 
 **Struktur Direktori Utama:**
 
